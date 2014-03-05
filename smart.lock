@@ -1,7 +1,15 @@
 {
   "meteor": {},
   "dependencies": {
-    "basePackages": {},
-    "packages": {}
+    "basePackages": {
+      "server-info": {}
+    },
+    "packages": {
+      "server-info": {
+        "git": "https://github.com/percolatestudio/meteor-server-info.git",
+        "tag": "v0.5.0",
+        "commit": "5f14e580a2e0bfb444bb15716832fb80565df925"
+      }
+    }
   }
 }
