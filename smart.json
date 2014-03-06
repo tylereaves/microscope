@@ -1,6 +1,7 @@
 {
   "packages": {
     "server-info": {},
-    "iron-router": {}
+    "iron-router": {},
+    "spin": {}
   }
 }
