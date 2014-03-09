@@ -13,3 +13,5 @@ iron-router
 spin
 accounts-ui-bootstrap-dropdown
 accounts-password
+appcache
+spiderable
