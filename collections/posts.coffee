@@ -1,6 +1,6 @@
 @Posts = new Meteor.Collection "posts"
 @Posts.allow
-  update: ownsDocument
+  update: ownsDocument,
   remove: ownsDocument
 @Posts.deny
   update: (userId, post, fieldNames) ->
