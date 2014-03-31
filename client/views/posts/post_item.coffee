@@ -5,7 +5,4 @@ Template.postItem.helpers
     a.hostname
   ownPost: ->
     @userId == Meteor.userId()
-  commentsCount: ->
-    Comments.find({postId: @_id}).count()
-
 
