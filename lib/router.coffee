@@ -2,7 +2,7 @@ Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
   waitOn: ->
-    [Meteor.subscribe('posts'), Meteor.subscribe('comments')]
+    [Meteor.subscribe('posts'), Meteor.subscribe('notifications')]
 
 Router.map ->
   @route 'postsList',
@@ -20,13 +20,14 @@ Router.map ->
   @route 'postSubmit',
     path: '/submit'
 
-  requireLogin = ->
-    if !Meteor.user()
-      @render(if Meteor.loggingIn() then @loadingTemplate else 'accessDenied')
-      @stop()
+requireLogin = ->
+  if !Meteor.user()
+    @render(if Meteor.loggingIn() then @loadingTemplate else 'accessDenied')
+  pause();
 
-  Router.before requireLogin,
-    only: 'postSubmit'
+Router.onBeforeAction 'loading'
+Router.onBeforeAction requireLogin,
+  only: 'postSubmit'
+Router.onBeforeAction(->
+  clearErrors())
 
-  Router.before () ->
-    Errors.clearSeen()
